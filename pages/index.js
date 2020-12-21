@@ -28,33 +28,31 @@ const Home = () => {
 
   return (
     <>
-      <Spin spinning={loading} tip="Loading...">
-        <div className="home-page">
-          <PureHeader />
-          <main className="container">
-            <div className="search-box">
-              <Input.Search
-                style={{ width: 300 }}
-                placeholder="Search for something..."
-              />
-              <Button
-                onClick={() => router.push("/blog/create")}
-                type="primary"
-                icon={<PlusOutlined />}
-              >
-                New Article
-              </Button>
-            </div>
-            <Row gutter={[30, 30]} style={{ marginTop: 30 }}>
-              {data.map((article) => (
-                <Col md={8} sm={12} xs={24} key={article.id}>
-                  <PureCard item={article} />
-                </Col>
-              ))}
-            </Row>
-          </main>
-        </div>
-      </Spin>
+      <div className="home-page">
+        <PureHeader />
+        <main className="container">
+          <div className="search-box">
+            <Input.Search
+              style={{ width: 300 }}
+              placeholder="Search for something..."
+            />
+            <Button
+              onClick={() => router.push("/blog/create")}
+              type="primary"
+              icon={<PlusOutlined />}
+            >
+              New Article
+            </Button>
+          </div>
+          <Row gutter={[30, 30]} style={{ marginTop: 30 }}>
+            {data.map((article) => (
+              <Col md={8} sm={12} xs={24} key={article.id}>
+                <PureCard item={article} />
+              </Col>
+            ))}
+          </Row>
+        </main>
+      </div>
     </>
   );
 };
